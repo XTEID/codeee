@@ -1,37 +1,97 @@
 @echo off
-title Scrcpy Launcher
+title Scrcpy Launcher - By VAIZBTG
 
 :menu
+cls
+echo ===================================
+echo  SCRCPY LAUNCHER SEDERHANA
+echo  Dibuat oleh: VAIZBTG
+echo ===================================
 echo Pilih metode koneksi:
 echo 1. Menggunakan USB
-echo 2. Menggunakan IP Address dan Port
+echo 2. Hanya Audio (Tanpa Video)
 echo 3. Keluar
-
-set /p choice=Masukkan pilihan Anda (1-3):
+echo.
+set /p choice="Masukkan pilihan Anda (1-3): "
 
 if "%choice%"=="1" goto usb
-if "%choice%"=="2" goto ip_port
-if "%choice%"=="3" goto exit
+if "%choice%"=="2" goto audio_only
+if "%choice%"=="3" goto exit_app
 
-echo Pilihan tidak valid. Silakan coba lagi.
-pause
+echo Pilihan tidak valid. Tekan tombol apa saja untuk mencoba lagi.
+pause >nul
 goto menu
 
 :usb
-echo Menjalankan scrcpy melalui USB...
-scrcpy.exe
-goto exit
+cls
+echo ===================================
+echo --- Menjalankan Scrcpy melalui USB ---
+echo         (Launcher by VAIZBTG)
+echo ===================================
+echo.
+echo   Untuk mengurangi beban kinerja HP, Anda bisa mengatur parameter berikut:
+echo   (Biarkan kosong untuk menggunakan nilai default Scrcpy atau setting asli HP)
+echo.
 
-:ip_port
-echo Anda memilih koneksi melalui IP Address dan Port.
-set /p ip_address=Masukkan IP Address perangkat Android Anda:
-set /p port=Masukkan Port (default: 5555):
-if "%port%"=="" set port=5555
-echo Menjalankan scrcpy dengan IP: %ip_address% dan Port: %port%...
-scrcpy.exe --tcpip=%ip_address%:%port%
-goto exit
+rem --- AWAS: JIKA scrcpy.exe TIDAK ADA DI PATH, ANDA MUNGKIN PERLU MEMBERIKAN PATH LENGKAP ---
+rem Contoh: set "scrcpy_command=C:\Program Files\scrcpy\scrcpy.exe"
+set "scrcpy_command=scrcpy"
+set "scrcpy_options="
 
-:exit
-echo Terima kasih!
+set /p max_size_value="1. Resolusi Maksimal Layar (mis: 1024, 800. Default: asli HP): "
+if not "%max_size_value%"=="" set "scrcpy_options=%scrcpy_options% --max-size=%max_size_value%"
+
+set /p max_fps_value="2. FPS Maksimal (mis: 15, 20, 30. Default: asli HP): "
+if not "%max_fps_value%"=="" set "scrcpy_options=%scrcpy_options% --max-fps=%max_fps_value%"
+
+echo.
+echo   (Bitrate video dan audio akan menggunakan default Scrcpy)
+echo.
+
+echo === MEMERIKSA PERINTAH YANG AKAN DIJALANKAN ===
+echo Perintah Lengkap:
+echo "%scrcpy_command%%scrcpy_options%"
+echo (Salin perintah di atas dan coba jalankan manual di CMD jika ada masalah)
+echo =============================================
+echo.
+echo DEBUG: Akan menjalankan Scrcpy sekarang...
+echo.
+
+rem --- Coba jalankan scrcpy ---
+"%scrcpy_command%" %scrcpy_options%
+
+echo.
+echo DEBUG: Scrcpy selesai atau gagal. Errorlevel: %errorlevel%
+echo.
+echo =================================================================
+echo Scrcpy telah selesai atau ditutup (atau mungkin tidak berjalan).
+echo Periksa output di atas, terutama Errorlevel.
+echo Jika Errorlevel 9009, scrcpy.exe tidak ditemukan.
+echo Jika Errorlevel 0 tapi tidak ada tampilan, pastikan HP terhubung dan ADB aktif.
+echo Jendela ini akan tetap terbuka. Tekan tombol apa saja untuk kembali ke menu utama.
+echo =================================================================
 pause
-exit
+goto menu
+
+:audio_only
+cls
+echo ===================================
+echo --- Menjalankan Scrcpy Mode Audio Saja ---
+echo           (Launcher by VAIZBTG)
+echo ===================================
+echo.
+rem --- AWAS: JIKA scrcpy.exe TIDAK ADA DI PATH, ANDA MUNGKIN PERLU MEMBERIKAN PATH LENGKAP ---
+rem Contoh: set "scrcpy_command=C:\Program Files\scrcpy\scrcpy.exe"
+set "scrcpy_command=scrcpy"
+set "scrcpy_options=--no-video"
+
+set /p audio_codec_input="Pilih Audio Codec (aac, opus, raw. Default: opus): "
+if not "%audio_codec_input%"=="" set "scrcpy_options=%scrcpy_options% --audio-codec=%audio_codec_input%"
+
+set /p audio_bitrate_input="Masukkan audio bitrate (mis: 64k, 128k. Default Scrcpy: 128k): "
+if not "%audio_bitrate_input%"=="" set "scrcpy_options=%scrcpy_options% --audio-bit-rate=%audio_bitrate_input%"
+
+echo.
+echo === MEMERIKSA PERINTAH YANG AKAN DIJALANKAN ===
+echo Perintah Lengkap:
+echo "%scrcpy_command%%scrcpy_options%"
