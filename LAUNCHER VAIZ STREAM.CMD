@@ -40,9 +40,7 @@ set "opts=--no-video"
 goto run_scrcpy
 
 :no_audio
-set "opts=--no-audio"
-set /p m_size="Resolusi Video (Contoh 800, 1024): "
-if not "%m_size%"=="" set opts=%opts% --max-size=%m_size%
+set "opts=--no-audio --max-size=1024"
 goto run_scrcpy
 
 :run_scrcpy
@@ -56,6 +54,8 @@ echo.
 
 :: Eksekusi dengan tanda kutip ganda untuk menangani spasi folder
 "%SC_PATH%" %opts%
+
+if %errorlevel%==0 goto menu
 
 if %errorlevel% neq 0 (
     echo.
