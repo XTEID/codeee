@@ -1,15 +1,77 @@
-🚀 Launcher Scrcpy Sederhana oleh VAIZBTG 📱💻
-Tingkatkan pengalaman mirroring Android Anda dengan launcher Scrcpy yang mudah digunakan ini!
-Apa Fungsinya?
-Mengelola koneksi Scrcpy dengan menu interaktif yang bersih, dibuat khusus untuk Windows (Batch Script).
-Memungkinkan Anda memilih antara mirroring Video + Audio (USB) atau Hanya Audio (mode radio/musik).
-Fitur Utama (Mode USB/Video):
-Optimasi Kinerja: Atur Resolusi Maksimal dan FPS Maksimal saat itu juga untuk mengurangi lag dan beban kerja HP/PC Anda.
-Kontrol Rendering: Pilih Render Driver (OpenGL, Direct3D, Software, dll.) untuk mendapatkan kompatibilitas atau kinerja grafis terbaik di sistem Anda.
-Latensi Audio Rendah: Sesuaikan Audio Buffer untuk menyeimbangkan antara latensi rendah dan stabilitas suara.
-Fitur Utama (Mode Audio Saja):
-Audio Forwarding Tanpa Video: Gunakan HP Anda sebagai sumber audio berkualitas tinggi ke PC tanpa perlu menampilkan layar.
-Pengaturan Audio Mendalam: Atur Codec Audio dan Bitrate sesuai kebutuhan Anda.
-👍 Mengapa Menggunakan Ini?
-Tidak perlu lagi menghafal banyak perintah CMD yang panjang! Cukup jalankan script ini dan biarkan ia menangani semua pengaturan kompleks Scrcpy, memberikan Anda kendali penuh atas kualitas mirroring dan audio.
-Cocok untuk: Gamer yang mencari latensi rendah, pengembang yang ingin optimasi cepat, atau siapa pun yang hanya ingin mendengarkan audio HP di PC.
+✨ Fitur Utama
+🖥️ Launcher Utama (VAIZBTGSCRCPY.cmd)
+✅ Koneksi USB dengan berbagai opsi kustomisasi
+✅ Mode audio-only untuk streaming audio
+✅ Mode video tanpa audio untuk performa ringan
+✅ Resolusi default 1080p (diperbarui dari 1024p)
+✅ Pengaturan render driver (OpenGL, Direct3D, Software)
+✅ Kontrol bitrate, FPS, dan audio buffer
+📡 Setup Koneksi Wireless (wireless_setup.bat)
+✅ Panduan step-by-step setup koneksi WiFi
+✅ Otomatis mengaktifkan ADB over TCP/IP
+✅ Koneksi tanpa kabel USB
+🎬 Perekam Layar (screen_recorder.bat)
+✅ Perekaman dengan/tanpa audio
+✅ Mode kualitas tinggi dan rendah
+✅ Penamaan file otomatis dengan timestamp
+✅ Format output MP4/MKV
+🎮 Profile Manager (profile_manager.bat)
+✅ Gaming Mode: Optimasi untuk gaming dengan latensi rendah
+✅ Presentation Mode: Kualitas tinggi untuk presentasi
+✅ Battery Saver Mode: Hemat baterai dengan kualitas rendah
+✅ Audio Only Mode: Streaming audio saja
+✅ Custom Profile: Buat pengaturan sendiri
+📱 Device Manager (device_manager.bat)
+✅ Kelola multiple perangkat Android
+✅ Mirror semua perangkat sekaligus
+✅ Informasi detail perangkat (model, versi Android, resolusi, baterai)
+✅ Restart ADB server
+🔧 Troubleshoot & Diagnostik (troubleshoot.bat)
+✅ Cek status ADB dan koneksi
+✅ Panduan aktivasi USB Debugging
+✅ Test koneksi perangkat
+✅ Cek versi scrcpy
+✅ Reset ADB
+✅ Log diagnostik lengkap
+🚀 Cara Penggunaan
+Download semua file dari release ini
+Ekstrak ke folder pilihan Anda
+Pastikan scrcpy sudah terinstall dan ada di PATH
+Aktifkan USB Debugging di perangkat Android
+Jalankan VAIZBTGSCRCPY.cmd
+Pilih fitur yang diinginkan dari menu
+📋 Persyaratan Sistem
+✅ Windows dengan Command Prompt
+✅ ADB (Android Debug Bridge)
+✅ Scrcpy versi terbaru
+✅ Perangkat Android dengan USB Debugging aktif
+🎯 Rekomendasi Penggunaan
+🎮 Untuk Gaming:
+Gunakan Gaming Mode di Profile Manager
+Set resolusi 1280x720 atau lebih rendah
+FPS 60 dengan audio buffer 20ms
+📊 Untuk Presentasi:
+Gunakan Presentation Mode
+Resolusi tinggi (1080p) dengan bitrate 15M
+Audio buffer 100ms untuk stabilitas
+🔋 Untuk Hemat Baterai:
+Gunakan Battery Saver Mode
+Aktifkan turn-screen-off
+Resolusi 720p dengan FPS 15
+📦 File yang Disertakan
+VAIZBTGSCRCPY.cmd - Launcher utama
+wireless_setup.bat - Setup koneksi wireless
+screen_recorder.bat - Perekam layar
+profile_manager.bat - Manager profil
+device_manager.bat - Manager perangkat
+troubleshoot.bat - Diagnostik dan troubleshoot
+scrcpy.exe - Executable scrcpy
+adb.exe - Android Debug Bridge
+File DLL dan dependencies lainnya
+🐛 Troubleshooting
+Jika mengalami masalah:
+
+Jalankan Troubleshoot & Diagnostik dari menu utama
+Cek log diagnostik yang dihasilkan
+Pastikan USB Debugging aktif
+Restart ADB jika perlu
