@@ -43,7 +43,7 @@ goto run_scrcpy
 set "opts=--no-audio --max-size=1024"
 goto run_scrcpy
 
-:run_scrcpy
+:run_scrcpya
 cls
 echo ===================================
 echo   SEDANG MENJALANKAN SCRCPY...
