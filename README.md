@@ -1,4 +1,4 @@
-# Scrcpy Launcher Enhanced - By VAIZBTG
+# Scrcpy Launcher Enhanced -
 
 Launcher lengkap untuk scrcpy dengan berbagai fitur tambahan untuk kemudahan penggunaan.
 
